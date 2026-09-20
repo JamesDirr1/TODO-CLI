@@ -25,7 +25,7 @@ public class TodoTaskTests
     public void NewTodoTask_WithInvalidTitle_ShouldThrowArgumentException(string? title)
     {
         // Arrage &Act & Assert
-        Assert.Throws<ArgumentException>(() => new TodoTask(emptyTitle!));
+        Assert.Throws<ArgumentException>(() => new TodoTask(title!));
     }
     
     [Fact]
