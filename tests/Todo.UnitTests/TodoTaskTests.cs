@@ -22,12 +22,9 @@ public class TodoTaskTests
     [InlineData(null)]
     [InlineData("")]
     [InlineData("   ")]
-    public void NewTodoTask_WithEmptyTitle_ShouldThrowArgumentException(string? title)
+    public void NewTodoTask_WithInvalidTitle_ShouldThrowArgumentException(string? title)
     {
-        // Arrange
-        string? emptyTitle = title;
-
-        // Act & Assert
+        // Arrage &Act & Assert
         Assert.Throws<ArgumentException>(() => new TodoTask(emptyTitle!));
     }
     

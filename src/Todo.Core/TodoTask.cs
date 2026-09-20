@@ -13,16 +13,15 @@ public class TodoTask
                 "Title cannot be empty or whitespace.", 
                 nameof(title));
         } 
-        this.Title = title;
-        this.Status = TodoTaskStatus.Open;
+        Title = title;
+        Status = TodoTaskStatus.Open;
     }
     
     public void Complete()
     {
-        if (this.Status != TodoTaskStatus.Completed)
+        if (Status != TodoTaskStatus.Completed)
         {
-            this.Status = TodoTaskStatus.Completed;
+            Status = TodoTaskStatus.Completed;
         }
     }
 }
-
