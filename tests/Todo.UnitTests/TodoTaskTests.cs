@@ -8,32 +8,32 @@ public class TodoTaskTests
     public void NewTodoTask_InitWithTitleAndOpenStatus()
     {
         // Arrange
-        string title = "Test Task";
+        var title = "Test Task";
 
         // Act
-        TodoTask task = new TodoTask(title);
+        var task = new TodoTask(title);
 
         // Assert
         Assert.Equal(title, task.Title);
         Assert.Equal(TodoTaskStatus.Open, task.Status);
     }
-    
+
     [Theory]
     [InlineData(null)]
     [InlineData("")]
     [InlineData("   ")]
     public void NewTodoTask_WithInvalidTitle_ShouldThrowArgumentException(string? title)
     {
-        // Arrage &Act & Assert
+        // Act & Assert 
         Assert.Throws<ArgumentException>(() => new TodoTask(title!));
     }
-    
+
     [Fact]
     public void TodoTask_UpdateStatusToCompleted()
     {
         // Arrange
-        string title = "Test Task";
-        TodoTask task = new TodoTask(title);
+        var title = "Test Task";
+        var task = new TodoTask(title);
 
         // Act
         task.Complete();
@@ -41,13 +41,13 @@ public class TodoTaskTests
         // Assert
         Assert.Equal(TodoTaskStatus.Completed, task.Status);
     }
-    
+
     [Fact]
     public void TodoTask_CompleteMethodDoesNotChangeStatusIfAlreadyCompleted()
     {
         // Arrange
-        string title = "Test Task";
-        TodoTask task = new TodoTask(title);
+        var title = "Test Task";
+        var task = new TodoTask(title);
         task.Complete(); // Set status to Completed
 
         // Act
