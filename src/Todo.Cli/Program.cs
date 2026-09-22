@@ -1,13 +1,10 @@
 ﻿using System.CommandLine;
 
-RootCommand rootCommand = new RootCommand("A simple todo application");
+var rootCommand = new RootCommand("A simple todo application");
 
-Command statusCommand = new Command("status", "Shows the current todo status");
+var statusCommand = new Command("status", "Shows the current todo status");
 
-statusCommand.SetAction(parseResult =>
-{
-    Console.WriteLine("Todo is ready.");
-});
+statusCommand.SetAction(parseResult => { Console.WriteLine("Todo is ready."); });
 
 rootCommand.Subcommands.Add(statusCommand);
 

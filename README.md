@@ -120,7 +120,7 @@ dotnet test
 - Run the CLI:
 
 ```bash
-dotnet run --project Todo.Cli
+dotnet run --project src/Todo.Cli
 ```
 
 View the currently available CLI commands:
@@ -149,7 +149,7 @@ The following represents the intended command-line experience as the project dev
 
 ``todo top``
 
-These commands part of the project's roadmap and may be subject to change as development progresses.
+These commands are a part of the project's roadmap and may be subject to change as development progresses.
 
 ## Roadmap
 
