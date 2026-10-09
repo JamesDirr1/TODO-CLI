@@ -15,6 +15,7 @@ public class TodoTaskTests
 
         // Assert
         Assert.Equal(title, task.Title);
+        Assert.Equal(0, task.Id);
         Assert.Equal(TodoTaskStatus.Open, task.Status);
     }
 
@@ -26,6 +27,29 @@ public class TodoTaskTests
     {
         // Act & Assert 
         Assert.Throws<ArgumentException>(() => new TodoTask(title!));
+    }
+
+    [Fact]
+    public void NewTodoTask_WithTitleExactly200Chars_ShouldSucceed()
+    {
+        //Arrange
+        var title = new string('a', 200);
+
+        //Act
+        var task = new TodoTask(title);
+
+        // Assert
+        Assert.Equal(title, task.Title);
+    }
+
+    [Fact]
+    public void NewTodoTask_WithTitleLongerThan200Chars_ShouldThrowArgumentException()
+    {
+        //Arrange
+        var title = new string('a', 201);
+
+        //Act & Assert
+        Assert.Throws<ArgumentException>(() => new TodoTask(title));
     }
 
     [Fact]

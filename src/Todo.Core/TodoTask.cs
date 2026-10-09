@@ -2,6 +2,8 @@ namespace Todo.Core;
 
 public class TodoTask
 {
+    public const int MaxTitleLength = 200;
+
     public TodoTask(string title)
     {
         if (string.IsNullOrWhiteSpace(title))
@@ -11,10 +13,17 @@ public class TodoTask
                 nameof(title));
         }
 
+        if (title.Length > MaxTitleLength)
+        {
+            throw new ArgumentException(
+                $"Title cannot be longer than {MaxTitleLength} characters.", nameof(title));
+        }
+
         Title = title;
         Status = TodoTaskStatus.Open;
     }
 
+    public int Id { get; private set; }
     public string Title { get; private set; }
     public TodoTaskStatus Status { get; private set; }
 
